@@ -1,5 +1,5 @@
 ## CTF Grapher
-This is a visualizer for the contrast transfer function (CTF) of an electron microscope. It can be downloaded and run locally or can be viewed here.
+This is a visualizer for the contrast transfer function (CTF) of an electron microscope. It can be downloaded and run locally or viewed here.
 
 ### Run locally
 The visualizer can be set up to run locally as follows.
