@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./App.css"
+//import "./App.css"
 import ctfEqn from "./ctf-eqn.svg";
 import { makeStyles, createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { teal } from "@material-ui/core/colors";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { teal, grey } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     margin: 0,
-    width: '100%',
+    width: "100%",
   },
   paper: {
     padding: theme.spacing(2),
@@ -33,17 +34,20 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    height: "100px",
+    height: "110px",
   },
 }));
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: teal[500],
+    text: {
+      primary: teal[300],
     },
-    secondary: {
-      main: teal[500],
+    background: {
+      default: grey[800],
+    },
+    primary: {
+      main: teal[300],
     },
   },
 });
@@ -55,61 +59,61 @@ export default function App() {
 
   return (
     <div className={classes.root}>
-      <Grid
-        container
-        spacing={3}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        className={classes.container}
-      >
-        <Grid item xs={6}>
-          <Typography variant="h4">CTF Grapher</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Graph
-              voltage={voltage}
-              defocus={defocus}
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <img src={ctfEqn} alt="ctf equation"/>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid
-            container
-            spacing={3}
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            className={classes.container}
-          >
-            <Grid item xs={6} className={classes.control}>
-              <Paper className={classes.paperControl}>
-                <ControlDefocus setDefocus={setDefocus} defocus={defocus} />
-              </Paper>
-            </Grid>
-            <Grid item xs={6} className={classes.control}>
-              <Paper className={classes.paperControl}>
-                <ControlVoltage setVoltage={setVoltage} voltage={voltage} />
-              </Paper>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Grid
+          container
+          spacing={3}
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          className={classes.container}
+        >
+          <Grid item xs={6}>
+            <Typography variant="h4">CTF Grapher</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Graph voltage={voltage} defocus={defocus} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <img src={ctfEqn} alt="ctf equation" />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid
+              container
+              spacing={3}
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              className={classes.container}
+            >
+              <Grid item xs={6} className={classes.control}>
+                <Paper className={classes.paperControl}>
+                  <ControlDefocus setDefocus={setDefocus} defocus={defocus} />
+                </Paper>
+              </Grid>
+              <Grid item xs={6} className={classes.control}>
+                <Paper className={classes.paperControl}>
+                  <ControlVoltage setVoltage={setVoltage} voltage={voltage} />
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={6}>
+            <Link
+              href="https://github.com/joelmeyerson/ctf-grapher"
+              target="_blank"
+              variant="inherit"
+            >
+              Source code
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Link
-            href="https://github.com/joelmeyerson/ctf-grapher"
-            target="_blank"
-            variant="inherit"
-          >
-            Source code
-          </Link>
-        </Grid>
-      </Grid>
+      </ThemeProvider>
     </div>
   );
 }
