@@ -1,11 +1,14 @@
 ## CTF Grapher
-This is a visualizer for the contrast transfer function (CTF) of an electron microscope. It can be run locally in a browser or can be viewed here.
+This is a visualizer for the contrast transfer function (CTF) of an electron microscope. It can be downloaded and run locally or can be viewed here.
 
 ### Run locally
 The visualizer can be set up to run locally as follows.
 
+Go to the app directory.
 `cd ctf-grapher`
 
-`yarn` or `npm install` Install dependencies.
+Install dependencies.
+`yarn` or `npm install`
 
-`yarn start` or `npm start` Start the React web server [http://localhost:3000](http://localhost:3000).
+Start the React web server and open the page at [http://localhost:3000](http://localhost:3000).
+`yarn start` or `npm start` 
